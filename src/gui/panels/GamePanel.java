@@ -29,7 +29,7 @@ public class GamePanel {
         playerPanel = new JPanel(new GridLayout(2, 1));
         playerTablePanel = new JPanel(new FlowLayout());
         playerTotalPanel = new JPanel(new GridLayout(1, 1));
-        JLabel playerTotalLabel = new JLabel(playerTotal.toString());
+        JLabel playerTotalLabel = new JLabel("Total: " + playerTotal.toString());
         playerTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
         playerTotalPanel.add(playerTotalLabel);
         playerPanel.add(playerTablePanel);
@@ -40,7 +40,7 @@ public class GamePanel {
         machinePanel = new JPanel(new GridLayout(2, 1));
         machineTablePanel = new JPanel(new FlowLayout());
         machineTotalPanel = new JPanel(new GridLayout(1, 1));
-        JLabel machineTotalLabel = new JLabel(machineTotal.toString());
+        JLabel machineTotalLabel = new JLabel("Total: " + machineTotal.toString());
         machineTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
         machineTotalPanel.add(machineTotalLabel);
         machinePanel.add(machineTablePanel);
