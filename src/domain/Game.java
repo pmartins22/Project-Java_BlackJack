@@ -41,6 +41,9 @@ public class Game {
                     Game.getInstance().addToMachineTotal(card.getValue());
                     publish(card);
                     Thread.sleep(1000);
+                    if (Game.getInstance().getMachineTotal() > Game.getInstance().getPlayerTotal()) {
+                        break;
+                    }
                 }
                 return null;
             }
@@ -103,9 +106,13 @@ public class Game {
             @Override
             protected void done() {
                 Game.getInstance().resetGame();
+                GamePanel.getInstance().updateButtonPanel();
+                GameButtons.getInstance().repaint();
                 GamePanel.getInstance().setPanels();
                 GamePanel.getInstance().repaint();
-                GameButtons.getInstance().allButtonsEnabled(true);
+                GameButtons.getInstance().buttonEnabled("Continue", true);
+                GameButtons.getInstance().buttonEnabled("Stop", false);
+                GameButtons.getInstance().buttonEnabled("Quit", true);
             }
         }.execute();
     }
@@ -147,5 +154,6 @@ public class Game {
         this.deck = new DeckOfCards();
         this.playerTotal = 0;
         this.machineTotal = 0;
+        GameButtons.getInstance().buttonEnabled("Stop", false);
     }
 }

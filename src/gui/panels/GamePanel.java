@@ -18,6 +18,7 @@ public class GamePanel {
     private JPanel machinePanel;
     private JPanel machineTablePanel;
     private JPanel machineTotalPanel;
+    private JPanel buttonPanel;
 
 
 
@@ -50,7 +51,7 @@ public class GamePanel {
         panel.add(interfacePanel);
 
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 3));
+        buttonPanel = new JPanel(new GridLayout(1, 3));
         buttonPanel.add(GameButtons.getInstance().getContinueButton());
         buttonPanel.add(GameButtons.getInstance().getStopButton());
         buttonPanel.add(GameButtons.getInstance().getQuitButton());
@@ -87,6 +88,13 @@ public class GamePanel {
         JLabel resultLabel = new JLabel(Game.getInstance().getResultMessage());
         resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
         resultPanel.add(resultLabel);
+    }
+
+    public void updateButtonPanel() {
+        buttonPanel.removeAll();
+        buttonPanel.add(GameButtons.getInstance().getContinueButton());
+        buttonPanel.add(GameButtons.getInstance().getStopButton());
+        buttonPanel.add(GameButtons.getInstance().getQuitButton());
     }
 
     public JPanel getPlayerTablePanel() {
