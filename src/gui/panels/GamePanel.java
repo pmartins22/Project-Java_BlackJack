@@ -61,9 +61,17 @@ public class GamePanel {
 
     public static void addToTablePanel(String table, Card card) {
         JPanel cardPanel = new JPanel();
-        cardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        cardPanel.add(new JLabel(card.getRank().getSymbol()));
-        cardPanel.add(new JLabel(card.getSuit().getSymbol()));
+        cardPanel.setBorder(BorderFactory.createLineBorder(card.getColor()));
+
+        JLabel rank = new JLabel(card.getRank().getSymbol());
+        rank.setFont(new Font("Arial", Font.BOLD, 16));
+        rank.setForeground(card.getColor());
+        JLabel suit = new JLabel(card.getSuit().getSymbol());
+        suit.setFont(new Font("Arial", Font.BOLD, 16));
+        suit.setForeground(card.getColor());
+
+        cardPanel.add(rank);
+        cardPanel.add(suit);
         switch (table) {
             case "Player": GamePanel.getInstance().getPlayerTablePanel().add(cardPanel); break;
             case "Machine": GamePanel.getInstance().getMachineTablePanel().add(cardPanel); break;
