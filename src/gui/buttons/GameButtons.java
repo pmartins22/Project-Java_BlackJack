@@ -17,6 +17,7 @@ public class GameButtons {
         continueButton.setHorizontalAlignment(SwingConstants.CENTER);
         continueButton.addActionListener(e -> {
             Game.playerTurn();
+            GameButtons.getInstance().buttonEnabled("Stop", true);
         });
 
         stopButton = new JButton("Stop");
@@ -32,6 +33,14 @@ public class GameButtons {
             System.out.println(Game.getInstance().getPlayerTotal());
             MainFrame.getInstance().navigateToMenu();
         });
+    }
+
+    public void buttonEnabled(String buttonName, boolean enabled) {
+        switch (buttonName) {
+            case "Continue": continueButton.setEnabled(enabled); break;
+            case "Stop": stopButton.setEnabled(enabled); break;
+            case "Quit": quitButton.setEnabled(enabled); break;
+        }
     }
 
     public void allButtonsEnabled(Boolean enabled) {
@@ -57,5 +66,14 @@ public class GameButtons {
 
     public JButton getQuitButton() {
         return quitButton;
+    }
+
+    public void repaint() {
+        continueButton.revalidate();
+        continueButton.repaint();
+        stopButton.revalidate();
+        stopButton.repaint();
+        quitButton.revalidate();
+        quitButton.repaint();
     }
 }
