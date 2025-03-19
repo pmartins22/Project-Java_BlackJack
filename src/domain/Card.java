@@ -16,8 +16,7 @@ public class Card {
     }
 
     public void logCard() {
-        System.out.print(" | " + rank.getSymbol() + " ");
-        System.out.print(suit.getSymbol() + " | ");
+        System.out.print(" | " + rank.getSymbol() + " " + suit.getSymbol() + " | ");
     }
     public Rank getRank() {
         return rank;
