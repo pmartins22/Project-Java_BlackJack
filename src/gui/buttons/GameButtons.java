@@ -2,6 +2,7 @@ package gui.buttons;
 
 import domain.Game;
 import gui.frames.MainFrame;
+import gui.panels.GamePanel;
 
 import javax.swing.*;
 
@@ -29,7 +30,8 @@ public class GameButtons {
         quitButton = new JButton("Quit");
         quitButton.setHorizontalAlignment(SwingConstants.CENTER);
         quitButton.addActionListener(e -> {
-            Game.resetGame();
+            Game.getInstance().resetGame();
+            System.out.println(Game.getInstance().getPlayerTotal());
             MainFrame.getInstance().navigateToMenu();
         });
     }

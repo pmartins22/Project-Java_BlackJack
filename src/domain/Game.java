@@ -44,7 +44,7 @@ public class Game {
                 }
                 break;
         }
-        Game.resetGame();
+        Game.getInstance().resetGame();
         MainFrame.getInstance().navigateToMenu();
     }
 
@@ -77,7 +77,9 @@ public class Game {
         return game;
     }
 
-    public static void resetGame(){
-        game = null;
+    public void resetGame(){
+        this.deck = new DeckOfCards();
+        this.playerTotal = 0;
+        this.machineTotal = 0;
     }
 }

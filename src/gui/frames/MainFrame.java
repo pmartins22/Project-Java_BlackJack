@@ -24,6 +24,7 @@ public class MainFrame {
         SwingUtilities.invokeLater(() -> {
             frame.getRootPane().getContentPane().revalidate();
             frame.getRootPane().getContentPane().repaint();
+            GamePanel.getInstance().repaint();
         });
     }
 

@@ -30,9 +30,7 @@ public class GamePanel {
         playerPanel = new JPanel(new GridLayout(2, 1));
         playerTablePanel = new JPanel(new FlowLayout());
         playerTotalPanel = new JPanel(new GridLayout(1, 1));
-        JLabel playerTotalLabel = new JLabel("Total: 0");
-        playerTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        playerTotalPanel.add(playerTotalLabel);
+
         playerPanel.add(playerTablePanel);
         playerPanel.add(playerTotalPanel);
 
@@ -41,9 +39,7 @@ public class GamePanel {
         machinePanel = new JPanel(new GridLayout(2, 1));
         machineTablePanel = new JPanel(new FlowLayout());
         machineTotalPanel = new JPanel(new GridLayout(1, 1));
-        JLabel machineTotalLabel = new JLabel("Total: 0");
-        machineTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        machineTotalPanel.add(machineTotalLabel);
+
         machinePanel.add(machineTablePanel);
         machinePanel.add(machineTotalPanel);
 
@@ -77,11 +73,12 @@ public class GamePanel {
 
     public void updateTotalPanel() {
         playerTotalPanel.removeAll();
-        JLabel playerTotalLabel = new JLabel("Total: " + Game.getInstance().getPlayerTotal());
+        JLabel playerTotalLabel = new JLabel("Player Total: " + Game.getInstance().getPlayerTotal());
         playerTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
         playerTotalPanel.add(playerTotalLabel);
         machineTotalPanel.removeAll();
-        JLabel machineTotalLabel = new JLabel("Total: " + Game.getInstance().getMachineTotal());
+        JLabel machineTotalLabel = new JLabel("Machine Total: " + Game.getInstance().getMachineTotal());
+        machineTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
         machineTotalPanel.add(machineTotalLabel);
     }
 
@@ -93,7 +90,37 @@ public class GamePanel {
         return machineTablePanel;
     }
 
+    public void setPanels() {
+        playerTablePanel.removeAll();
+        playerTotalPanel.removeAll();
+        resultPanel.removeAll();
+        machineTablePanel.removeAll();
+        machineTotalPanel.removeAll();
+        JLabel playerTotalLabel = new JLabel("Player Total: " + Game.getInstance().getPlayerTotal());
+        playerTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        playerTotalPanel.add(playerTotalLabel);
+        JLabel machineTotalLabel = new JLabel("Machine Total: " + Game.getInstance().getMachineTotal());
+        machineTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        machineTotalPanel.add(machineTotalLabel);
+    }
+
     public void repaint() {
+        playerPanel.revalidate();
+        playerPanel.repaint();
+        playerTablePanel.revalidate();
+        playerTablePanel.repaint();
+        playerTotalPanel.revalidate();
+        playerTotalPanel.repaint();
+        resultPanel.revalidate();
+        resultPanel.repaint();
+        machinePanel.revalidate();
+        machinePanel.repaint();
+        machineTablePanel.revalidate();
+        machineTablePanel.repaint();
+        machineTotalPanel.revalidate();
+        machineTotalPanel.repaint();
+        interfacePanel.revalidate();
+        interfacePanel.repaint();
         panel.revalidate();
         panel.repaint();
     }
