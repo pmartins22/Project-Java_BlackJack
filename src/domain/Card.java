@@ -15,6 +15,10 @@ public class Card {
         this.color = color;
     }
 
+    public void logCard() {
+        System.out.print(" | " + rank.getSymbol() + " ");
+        System.out.print(suit.getSymbol() + " | ");
+    }
     public Rank getRank() {
         return rank;
     }

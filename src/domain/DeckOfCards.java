@@ -43,7 +43,25 @@ public class DeckOfCards {
         int randomNumber = (int) (Math.random() * deck.size());
         Card card = deck.get(randomNumber);
         deck.remove(card);
+        System.out.println("Deck: \n-----------------------------------------------------------------------------------");
+        logDeck();
+        System.out.println("Card taken: \n-----------------------------------------------------------------------------------");
+        card.logCard();
+        System.out.println();
+        System.out.println("-----------------------------------------------------------------------------------");
         return card;
+    }
+
+    public void logDeck() {
+        Suit actualSuit = Suit.HEARTS;
+        for (Card card : deck) {
+            if (!card.getSuit().equals(actualSuit)) {
+                actualSuit = card.getSuit();
+                System.out.println();
+            }
+            card.logCard();
+        }
+        System.out.println();
     }
 
 
