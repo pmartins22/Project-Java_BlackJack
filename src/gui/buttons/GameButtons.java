@@ -36,6 +36,12 @@ public class GameButtons {
         });
     }
 
+    public void buttonsEnabled(Boolean b) {
+        continueButton.setEnabled(b);
+        stopButton.setEnabled(b);
+        quitButton.setEnabled(b);
+    }
+
     public static GameButtons getInstance() {
         if (instance == null) {
             instance = new GameButtons();

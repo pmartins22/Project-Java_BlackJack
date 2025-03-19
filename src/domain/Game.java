@@ -1,5 +1,6 @@
 package domain;
 
+import gui.buttons.GameButtons;
 import gui.frames.MainFrame;
 import gui.panels.GamePanel;
 
@@ -34,6 +35,7 @@ public class Game {
         new SwingWorker<Void, String>() {
             @Override
             protected Void doInBackground() throws Exception {
+                GameButtons.getInstance().buttonsEnabled(false);
                 for (int i = 3; i >= 1; i--) {
                     publish(who + " lost\n     " + i);
                     Thread.sleep(1000);
@@ -52,6 +54,7 @@ public class Game {
             protected void done() {
                 Game.getInstance().resetGame();
                 MainFrame.getInstance().navigateToMenu();
+                GameButtons.getInstance().buttonsEnabled(true);
             }
         }.execute();
     }
