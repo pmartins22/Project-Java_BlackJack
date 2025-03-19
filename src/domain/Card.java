@@ -10,4 +10,14 @@ public class Card {
         this.value = value;
         this.suit = suit;
     }
+
+    public Rank getRank() {
+        return rank;
+    }
+    public Integer getValue() {
+        return value;
+    }
+    public Suit getSuit() {
+        return suit;
+    }
 }

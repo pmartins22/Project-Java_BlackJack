@@ -15,31 +15,31 @@ public class DeckOfCards {
 
         //HEARTS
         for (int i = 1; i <= 13; i++) {
-            Card card = new Card(Rank.values()[i], i, Suit.HEARTS);
+            Card card = new Card(Rank.values()[i-1], i, Suit.HEARTS);
             deck.add(card);
         }
 
         //DIAMONDS
         for (int i = 1; i <= 13; i++) {
-            Card card = new Card(Rank.values()[i], i, Suit.DIAMONDS);
+            Card card = new Card(Rank.values()[i-1], i, Suit.DIAMONDS);
             deck.add(card);
         }
 
         //CLUBS
         for (int i = 1; i <= 13; i++) {
-            Card card = new Card(Rank.values()[i], i, Suit.CLUBS);
+            Card card = new Card(Rank.values()[i-1], i, Suit.CLUBS);
             deck.add(card);
         }
 
         //SPADES
         for (int i = 1; i <= 13; i++) {
-            Card card = new Card(Rank.values()[i], i, Suit.SPADES);
+            Card card = new Card(Rank.values()[i-1], i, Suit.SPADES);
             deck.add(card);
         }
     }
 
     public Card takeRandomCard() {
-        int randomNumber = (int) (Math.random() * 53);
+        int randomNumber = (int) (Math.random() * deck.size());
         Card card = deck.get(randomNumber);
         deck.remove(card);
         return card;

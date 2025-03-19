@@ -1,5 +1,6 @@
 package gui.buttons;
 
+import domain.Game;
 import gui.frames.MainFrame;
 
 import javax.swing.*;
@@ -13,6 +14,7 @@ public class MenuButtons {
         startGame = new JButton("Star Game");
         startGame.setHorizontalAlignment(SwingConstants.CENTER);
         startGame.addActionListener(e -> {
+            Game.getInstance();
             MainFrame.getInstance().navigateToGame();
         });
     }

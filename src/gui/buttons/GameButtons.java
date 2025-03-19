@@ -1,5 +1,6 @@
 package gui.buttons;
 
+import domain.Game;
 import gui.frames.MainFrame;
 
 import javax.swing.*;
@@ -13,7 +14,13 @@ public class GameButtons {
     private GameButtons() {
         continueButton = new JButton("Continue");
         continueButton.setHorizontalAlignment(SwingConstants.CENTER);
-        continueButton.addActionListener(e -> {});
+        continueButton.addActionListener(e -> {
+            try {
+                Game.playerTurn();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
         stopButton = new JButton("Stop");
         stopButton.setHorizontalAlignment(SwingConstants.CENTER);
@@ -22,6 +29,7 @@ public class GameButtons {
         quitButton = new JButton("Quit");
         quitButton.setHorizontalAlignment(SwingConstants.CENTER);
         quitButton.addActionListener(e -> {
+            Game.resetGame();
             MainFrame.getInstance().navigateToMenu();
         });
     }
