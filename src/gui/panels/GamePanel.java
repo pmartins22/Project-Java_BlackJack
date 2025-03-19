@@ -82,6 +82,13 @@ public class GamePanel {
         machineTotalPanel.add(machineTotalLabel);
     }
 
+    public void updateResultPanel() {
+        resultPanel.removeAll();
+        JLabel resultLabel = new JLabel(Game.getInstance().getResultMessage());
+        resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        resultPanel.add(resultLabel);
+    }
+
     public JPanel getPlayerTablePanel() {
         return playerTablePanel;
     }

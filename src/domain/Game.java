@@ -3,7 +3,9 @@ package domain;
 import gui.frames.MainFrame;
 import gui.panels.GamePanel;
 
+import javax.swing.*;
 import java.util.List;
+import java.util.Timer;
 
 public class Game {
     private static Game game;
@@ -28,28 +30,38 @@ public class Game {
         }
     }
 
-    public static void lost(String who) throws InterruptedException {
-        switch (who) {
-            case "Player":
+    public static void lost(String who) {
+        new SwingWorker<Void, String>() {
+            @Override
+            protected Void doInBackground() throws Exception {
                 for (int i = 3; i >= 1; i--) {
-                    Game.getInstance().setResultMessage("Player lost\n     " + i);
+                    publish(who + " lost\n     " + i);
                     Thread.sleep(1000);
                 }
+                return null;
+            }
 
-                break;
-            case "Machine":
-                for (int i = 3; i >= 1; i--) {
-                    Game.getInstance().setResultMessage("Machine lost\n     " + i);
-                    Thread.sleep(1000);
-                }
-                break;
-        }
-        Game.getInstance().resetGame();
-        MainFrame.getInstance().navigateToMenu();
+            @Override
+            protected void process(java.util.List<String> chunks) {
+                Game.getInstance().setResultMessage(chunks.get(chunks.size() - 1));
+                GamePanel.getInstance().updateResultPanel();
+                GamePanel.getInstance().repaint();
+            }
+
+            @Override
+            protected void done() {
+                Game.getInstance().resetGame();
+                MainFrame.getInstance().navigateToMenu();
+            }
+        }.execute();
     }
 
     public void setResultMessage(String message) {
         resultMessage = message;
+    }
+
+    public String getResultMessage() {
+        return resultMessage;
     }
 
     public void addToPlayerTotal(Integer value) {
