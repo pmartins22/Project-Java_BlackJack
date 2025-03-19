@@ -103,7 +103,8 @@ public class Game {
             @Override
             protected void done() {
                 Game.getInstance().resetGame();
-                MainFrame.getInstance().navigateToMenu();
+                GamePanel.getInstance().setPanels();
+                GamePanel.getInstance().repaint();
                 GameButtons.getInstance().allButtonsEnabled(true);
             }
         }.execute();
