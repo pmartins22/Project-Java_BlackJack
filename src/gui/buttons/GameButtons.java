@@ -16,16 +16,14 @@ public class GameButtons {
         continueButton = new JButton("Continue");
         continueButton.setHorizontalAlignment(SwingConstants.CENTER);
         continueButton.addActionListener(e -> {
-            try {
-                Game.playerTurn();
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
-            }
+            Game.playerTurn();
         });
 
         stopButton = new JButton("Stop");
         stopButton.setHorizontalAlignment(SwingConstants.CENTER);
-        stopButton.addActionListener(e -> {});
+        stopButton.addActionListener(e -> {
+            Game.machineTurn();
+        });
 
         quitButton = new JButton("Quit");
         quitButton.setHorizontalAlignment(SwingConstants.CENTER);
@@ -36,10 +34,10 @@ public class GameButtons {
         });
     }
 
-    public void buttonsEnabled(Boolean b) {
-        continueButton.setEnabled(b);
-        stopButton.setEnabled(b);
-        quitButton.setEnabled(b);
+    public void allButtonsEnabled(Boolean enabled) {
+        continueButton.setEnabled(enabled);
+        stopButton.setEnabled(enabled);
+        quitButton.setEnabled(enabled);
     }
 
     public static GameButtons getInstance() {
