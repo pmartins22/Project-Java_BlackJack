@@ -12,6 +12,7 @@ public class MenuButtons {
 
 
     private MenuButtons() {
+        // Create start game button.
         startGame = new JButton("Star Game");
         startGame.setHorizontalAlignment(SwingConstants.CENTER);
         startGame.addActionListener(e -> {

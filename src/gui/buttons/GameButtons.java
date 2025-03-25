@@ -13,6 +13,9 @@ public class GameButtons {
     private JButton quitButton;
 
     private GameButtons() {
+        // Create the 3 game buttons.
+
+        // Continue
         continueButton = new JButton("Continue");
         continueButton.setHorizontalAlignment(SwingConstants.CENTER);
         continueButton.addActionListener(e -> {
@@ -20,12 +23,14 @@ public class GameButtons {
             GameButtons.getInstance().buttonEnabled("Stop", true);
         });
 
+        // Stop
         stopButton = new JButton("Stop");
         stopButton.setHorizontalAlignment(SwingConstants.CENTER);
         stopButton.addActionListener(e -> {
             Game.machineTurn();
         });
 
+        // Quit
         quitButton = new JButton("Quit");
         quitButton.setHorizontalAlignment(SwingConstants.CENTER);
         quitButton.addActionListener(e -> {
@@ -35,6 +40,7 @@ public class GameButtons {
         });
     }
 
+    // Set enable/disable specific game buttons
     public void buttonEnabled(String buttonName, boolean enabled) {
         switch (buttonName) {
             case "Continue": continueButton.setEnabled(enabled); break;
@@ -43,6 +49,7 @@ public class GameButtons {
         }
     }
 
+    // Set enable/disable all game buttons
     public void allButtonsEnabled(Boolean enabled) {
         continueButton.setEnabled(enabled);
         stopButton.setEnabled(enabled);

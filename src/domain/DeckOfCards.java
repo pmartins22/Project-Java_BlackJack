@@ -39,17 +39,22 @@ public class DeckOfCards {
         }
     }
 
+    /** Returns a random card and remove it from the deck. */
     public Card takeRandomCard() {
-        int randomNumber = (int) (Math.random() * deck.size());
-        Card card = deck.get(randomNumber);
-        deck.remove(card);
+        int randomNumber = (int) (Math.random() * deck.size()); // Get a random number between 0 and the size of the deck - 1.
+        Card card = deck.get(randomNumber); // Get the card in the random index.
+        deck.remove(card); // Remove the card taken from the deck.
+
+        // Deck and card taken log in terminal for debug.
         System.out.println("Deck: \n-----------------------------------------------------------------------------------");
         logDeck();
         System.out.println("Card taken: \n-----------------------------------------------------------------------------------");
         card.logCard();
         System.out.println();
         System.out.println("-----------------------------------------------------------------------------------");
-        return card;
+
+
+        return card; // Return the card taken.
     }
 
     public void logDeck() {

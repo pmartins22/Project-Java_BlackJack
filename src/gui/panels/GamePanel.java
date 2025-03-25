@@ -50,7 +50,7 @@ public class GamePanel {
 
         panel.add(interfacePanel);
 
-
+        // button panel creation and layout organization
         buttonPanel = new JPanel(new GridLayout(1, 3));
         buttonPanel.add(GameButtons.getInstance().getContinueButton());
         buttonPanel.add(GameButtons.getInstance().getStopButton());
@@ -60,19 +60,25 @@ public class GamePanel {
 
     }
 
+    /** Add card panel to chosen table */
     public static void addToTablePanel(String table, Card card) {
-        JPanel cardPanel = new JPanel();
-        cardPanel.setBorder(BorderFactory.createLineBorder(card.getColor()));
+        JPanel cardPanel = new JPanel(); // Create card panel.
 
-        JLabel rank = new JLabel(card.getRank().getSymbol());
-        rank.setFont(new Font("Arial", Font.BOLD, 16));
-        rank.setForeground(card.getColor());
-        JLabel suit = new JLabel(card.getSuit().getSymbol());
-        suit.setFont(new Font("Arial", Font.BOLD, 16));
-        suit.setForeground(card.getColor());
+        // Add style to card panel.
+        cardPanel.setBorder(BorderFactory.createLineBorder(card.getColor())); // Add border to panel.
 
-        cardPanel.add(rank);
-        cardPanel.add(suit);
+        JLabel rank = new JLabel(card.getRank().getSymbol()); // Create rank label.
+        rank.setFont(new Font("Arial", Font.BOLD, 16)); // Set rank label font.
+        rank.setForeground(card.getColor()); // Set rank label color.
+
+        JLabel suit = new JLabel(card.getSuit().getSymbol()); // Create suit label.
+        suit.setFont(new Font("Arial", Font.BOLD, 16)); // Set suit label font.
+        suit.setForeground(card.getColor()); // Set suit label color.
+
+        cardPanel.add(rank); // Add rank label to card panel.
+        cardPanel.add(suit); // Add suit label to card panel.
+
+        // Add card panel to chosen table.
         switch (table) {
             case "Player": GamePanel.getInstance().getPlayerTablePanel().add(cardPanel); break;
             case "Machine": GamePanel.getInstance().getMachineTablePanel().add(cardPanel); break;
@@ -80,29 +86,27 @@ public class GamePanel {
         GamePanel.getInstance().updateTotalPanel();
     }
 
+    /** Remove all elements from total panel and add updated value */
     public void updateTotalPanel() {
+        // Player total.
         playerTotalPanel.removeAll();
         JLabel playerTotalLabel = new JLabel("Player Total: " + Game.getInstance().getPlayerTotal());
         playerTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
         playerTotalPanel.add(playerTotalLabel);
+
+        // Machine total.
         machineTotalPanel.removeAll();
         JLabel machineTotalLabel = new JLabel("Machine Total: " + Game.getInstance().getMachineTotal());
         machineTotalLabel.setHorizontalAlignment(SwingConstants.CENTER);
         machineTotalPanel.add(machineTotalLabel);
     }
 
+    /** Remove all elements from result panel and add updated value */
     public void updateResultPanel() {
         resultPanel.removeAll();
         JLabel resultLabel = new JLabel(Game.getInstance().getResultMessage());
         resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
         resultPanel.add(resultLabel);
-    }
-
-    public void updateButtonPanel() {
-        buttonPanel.removeAll();
-        buttonPanel.add(GameButtons.getInstance().getContinueButton());
-        buttonPanel.add(GameButtons.getInstance().getStopButton());
-        buttonPanel.add(GameButtons.getInstance().getQuitButton());
     }
 
     public JPanel getPlayerTablePanel() {
@@ -113,6 +117,7 @@ public class GamePanel {
         return machineTablePanel;
     }
 
+    /** Set all panels to initial values */
     public void setPanels() {
         playerTablePanel.removeAll();
         playerTotalPanel.removeAll();
@@ -127,6 +132,7 @@ public class GamePanel {
         machineTotalPanel.add(machineTotalLabel);
     }
 
+    /** Repaint all the panels */
     public void repaint() {
         playerPanel.revalidate();
         playerPanel.repaint();

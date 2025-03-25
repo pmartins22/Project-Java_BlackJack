@@ -18,6 +18,7 @@ public class MainFrame {
         frame.add(MenuPanel.getInstance().getPanel());
     }
 
+    /** Remove all panels in frame and add game panel to it. */
     public void navigateToGame() {
         frame.getRootPane().getContentPane().removeAll();
         frame.getRootPane().getContentPane().add(GamePanel.getInstance().getPanel());
@@ -28,6 +29,7 @@ public class MainFrame {
         });
     }
 
+    /** Remove all panels in frame and add menu panel to it. */
     public void navigateToMenu() {
         frame.getRootPane().getContentPane().removeAll();
         frame.getRootPane().getContentPane().add(MenuPanel.getInstance().getPanel());
