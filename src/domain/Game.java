@@ -95,13 +95,12 @@ public class Game {
     public static void end(String who) {
 
         // Switch who, that contains the winner, to get end message.
-        String endMessage = "";
-        switch (who) {
-            case "Player": endMessage = "Player wins!"; break;
-            case "Machine": endMessage = "Machine wins!"; break;
-            case "Draw": endMessage = "Draw!"; break;
-        }
-        String finalEndMessage = endMessage;
+        String endMessage = switch (who) {
+            case "Player" -> "Player wins!";
+            case "Machine" -> "Machine wins!";
+            case "Draw" -> "Draw!";
+            default -> "";
+        };
 
         // Run countdown to 3 in background for fluid interface update.
         new SwingWorker<Void, String>() {
@@ -110,7 +109,7 @@ public class Game {
                 GameButtons.getInstance().allButtonsEnabled(false); // Disable all buttons so player cant interfere.
 
                 for (int i = 3; i >= 1; i--) {
-                    publish(finalEndMessage + " " + i); // Publish end message with countdown value.
+                    publish(endMessage + " " + i); // Publish end message with countdown value.
                     Thread.sleep(1000); // Wait a second.
                 }
                 return null;
