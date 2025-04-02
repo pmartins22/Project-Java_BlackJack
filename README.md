@@ -4,17 +4,17 @@
 
 <h2>***BlackJack:***</h2>
 
-In this version of the game you must take cards from the deck and have
-the total the closest as possible of 21. you must have more than 21 in total,
-you will lose otherwise.
+In this version of the game, you must draw cards from the deck
+to get as close as possible to a total of 21. You must not exceed
+21, or you will lose.
 
-When you're done take cards, its time for the machine to take cards.
-The machine also cant have more than 21 cards or it loses. When its total
-is bigger than 17, its forced to stop taking cards.
+Once you are done drawing cards, it is the machine's turn. The machine
+also cannot exceed 21, or it will lose. When its total reaches 17 or 
+higher, it is forced to stop drawing cards.
 
-When both the player and the machine are done taking cards, the game calculates
-the winner. The one that have total closer from 21 wins. If both have the same
-total thats a draw.
+When both the player and the machine have finished their turns, the game 
+determines the winner. The player with the total closest to 21 wins. If 
+both have the same total, the result is a draw.
 
 ***
 
@@ -28,24 +28,23 @@ Once the game is open, click on Start Game to begin playing.
 
 ![img_1.png](readme_images/img_1.png)
 
-Its your turn, click on Continue to take as many cards as you want.
-Be carafull not to have more than 21 as total, or you will lose.
+It’s your turn! Click Continue to draw as many cards as you want.
+Be careful not to exceed 21, or you will lose.
 
 ![img_2.png](readme_images/img_2.png)
 
-Whenever you feel ready to stop, click Stop to pass the turn to the machine.
-The buttons will block and the machine will start taking cards.
+When you feel ready to stop, click Stop to pass the turn to the machine.
+The buttons will be disabled, and the machine will start drawing cards.
 
 ![img_3.png](readme_images/img_3.png)
 
-The machine stop taking cards as soon as its total is bigger than 17.
-If it have more thans 21 as total it loses, if not, the game calculates
-who have the total closer to 21 and shows the winner. If both have the same
-the result is a draw.
+The machine stops drawing cards once its total reaches 17 or higher.
+If it exceeds 21, it loses. Otherwise, the game determines the winner 
+based on the total closest to 21. If both totals are the same, the game 
+ends in a draw.
 
 ![img_4.png](readme_images/img_4.png)
 
-When the game is over it reset to initial configuration, ready for another
-game.
+When the game is over, it resets to the initial configuration, ready for a new round.
 
 ![img_1.png](readme_images/img_1.png)
